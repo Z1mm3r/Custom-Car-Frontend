@@ -23,6 +23,15 @@
   color: #61dafb;
 }
 
+.small-card-image{
+  height: 100px;
+  width: auto;
+}
+
+.price-text{
+  color: green;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
