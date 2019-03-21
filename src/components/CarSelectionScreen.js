@@ -3,6 +3,7 @@ import {Grid, Image,Card} from 'semantic-ui-react'
 
 import CarSelectionCard from './CarSelectionCard.js'
 import { useStateValue } from '../State.js';
+import API_URL from '../Constants/config.js'
 
 
 
@@ -12,9 +13,20 @@ export default function CarSelectionScreen(props){
 
   let renderCars = ()  => {
     return availableCarModels.map(element => {
-      return <CarSelectionCard car={element} key={element.id}/>
+      return <CarSelectionCard handleClick={getCarParts}  car={element} key={element.id}/>
     })
   }
+
+  let getCarParts = (id) =>{
+      fetch(`${API_URL.car_models}/${id}/parts`,
+        {method: "GET",
+        headers: {"Content-Type": "application/json"}})
+        .then(response => response.json())
+        .then(info =>{
+          debugger
+
+        })
+    }
 
 
   return(

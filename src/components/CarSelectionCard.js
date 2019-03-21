@@ -16,12 +16,12 @@ export default function CarSelectionCard(props){
       newPaneIndex: 2
     })
 
-    debugger
-
     setSelectedPart({
       type: 'ChangeSelectedParts',
       newSelectedParts: {...selectedPartIds,model:props.car.id}
     })
+
+    props.handleClick(props.car.id);
 
   }
 

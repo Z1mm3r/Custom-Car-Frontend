@@ -17,7 +17,7 @@ export default function MainContainer() {
 
 
   let getCarModels = () =>{
-      fetch(API_URL.car_models,
+      fetch(`${API_URL.car_models}`,
         {method: "GET",
         headers: {"Content-Type": "application/json"}})
         .then(response => response.json())
