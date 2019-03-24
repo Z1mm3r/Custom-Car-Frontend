@@ -15,7 +15,7 @@ export default function CarSelectionCard(props){
       type: 'ChangePaneIndex',
       newPaneIndex: 2
     })
-
+ 
     setSelectedPart({
       type: 'ChangeSelectedParts',
       newSelectedParts: {...selectedPartIds,model:props.car.id}

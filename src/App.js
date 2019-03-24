@@ -10,6 +10,7 @@ const App = () => {
   const initialState = {
     selectedPaneIndex: 0,
     availableCarModels: [],
+    possibleParts: {wheels:[],},
     selectedPartIds: {model:null
 
     }
@@ -32,6 +33,11 @@ const App = () => {
           ...state,
           selectedPartIds: action.newSelectedParts
         };
+      case 'ChangePossibleParts':
+        return {
+          ...state,
+          possibleParts: action.newPossibleParts
+        }
       default:
         return {...state}
     }

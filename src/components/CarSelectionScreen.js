@@ -10,6 +10,10 @@ import API_URL from '../Constants/config.js'
 export default function CarSelectionScreen(props){
 
   const [{availableCarModels}, dispatch] = useStateValue();
+  const [{selectedPartIds}, setSelectedPart] = useStateValue();
+  const [{possibleParts}, setPossibleParts] = useStateValue();
+  debugger
+
 
   let renderCars = ()  => {
     return availableCarModels.map(element => {
@@ -17,14 +21,23 @@ export default function CarSelectionScreen(props){
     })
   }
 
-  let getCarParts = (id) =>{
+  let getCarParts = (id) => {
+
+
       fetch(`${API_URL.car_models}/${id}/parts`,
         {method: "GET",
         headers: {"Content-Type": "application/json"}})
         .then(response => response.json())
         .then(info =>{
-          debugger
-
+          //TODO Figure out how to get this dispatch to work without needing to set model manually...
+          //Because this component does not remount, selectedPartId's is not updated...
+          // so we cant use {...selectedPartIds,etc_other_parts} because its still set to the initial state
+          //
+          setPossibleParts({
+            type: 'ChangePossibleParts',
+            newPossibleParts: {
+              wheels:info.wheels}
+          })
         })
     }
 

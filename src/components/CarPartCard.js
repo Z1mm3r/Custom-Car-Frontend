@@ -6,19 +6,19 @@ export default class CarPartCard extends Component{
 
 
   render(){
-    debugger
+    
     return (
       <Card>
-        <Card.Header>{this.props.car ? this.props.car.name : 'No Name Provided' }</Card.Header>
+        <Card.Header>{this.props.part ? this.props.part.name : 'No Name Provided' }</Card.Header>
         <Card.Description className="price-text">
-          {this.props.car.base_price ?  `Starting at $${this.props.car.base_price}` : 'No Price Provided' }
+          {this.props.part.price ?  `Starting at $${this.props.part.price}` : 'No Price Provided' }
         </Card.Description>
         <Card.Content>
-          <Image  className="small-card-image" src={this.props.car.img_url}/>
+          <Image  className="small-card-image" src={this.props.part.img_url}/>
         </Card.Content>
         <Card.Content extra>
           <Button basic color='green'>
-            Select Model
+            Select Part
           </Button>
         </Card.Content>
       </Card>

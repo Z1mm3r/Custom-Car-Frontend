@@ -3,13 +3,14 @@ import {useStateValue} from '../State.js'
 import {Tab} from 'semantic-ui-react'
 
 import CarSelectionScreen from './CarSelectionScreen.js'
+import PartSelectionScreen from './PartSelectionScreen.js'
 
 
 
 const panes = [
   {menuItem:'Welcome', render:() => <Tab.Pane> Welcome </Tab.Pane>},
   {menuItem:'Model', render: () => <Tab.Pane> <CarSelectionScreen> </CarSelectionScreen> </Tab.Pane>},
-  {menuItem:'Wheels', render: () => <Tab.Pane>Wheel Tab Content</Tab.Pane>},
+  {menuItem:'Wheels', render: () => <Tab.Pane><PartSelectionScreen part_type={"wheels"}></PartSelectionScreen></Tab.Pane>},
   {menuItem:'Trim', render: () => <Tab.Pane>Trim Tab Content</Tab.Pane>},
 
 ]
