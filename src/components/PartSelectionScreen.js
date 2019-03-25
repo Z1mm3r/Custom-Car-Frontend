@@ -9,12 +9,12 @@ import API_URL from '../Constants/config.js'
 
 export default function PartSelectionScreen(props){
 
-  const [{selectedPartIds}, setSelectedParts] = useStateValue();
+  const [{selectedPartIds}, dispatch] = useStateValue();
   const [{possibleParts}, setPossibleParts] = useStateValue();
 
   let setCarParts = (partType,id) =>{
-    setSelectedParts({
-      type: 'ChangePossibleParts',
+    dispatch({
+      type: 'ChangeSelectedParts',
       newSelectedParts: {
         ...selectedPartIds,
         [partType]:id}
@@ -22,6 +22,7 @@ export default function PartSelectionScreen(props){
   }
 
   let renderParts = (partType)  => {
+    debugger
     return possibleParts[partType].map(element => {
       return <CarPartCard handleClick={setCarParts} partType={partType}  part={element} key={element.id}/>
     })

@@ -22,7 +22,6 @@ export default function MainContainer() {
         headers: {"Content-Type": "application/json"}})
         .then(response => response.json())
         .then(info =>{
-          debugger
           dispatch({
             type: 'ChangeCarModels',
             newCarModels: info
@@ -35,21 +34,6 @@ export default function MainContainer() {
     setIsRetrievingModels(true)
     getCarModels()
   }
-
-   /* let displayCurrentTab = () =>{
-    switch(currentTab){
-      case TABS.WELCOME:
-        return (<WelcomeScreen> </WelcomeScreen>)
-
-      case TABS.CAR_SELECTION:
-        return(<CarSelectionScreen> </CarSelectionScreen>)
-
-      default:
-        return (<div>ERROR NO TAB FOUND</div>)
-
-    }
-  }
-  */
 
   return(
     <div>

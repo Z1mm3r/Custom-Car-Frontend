@@ -10,7 +10,8 @@ import PartSelectionScreen from './PartSelectionScreen.js'
 const panes = [
   {menuItem:'Welcome', render:() => <Tab.Pane> Welcome </Tab.Pane>},
   {menuItem:'Model', render: () => <Tab.Pane> <CarSelectionScreen> </CarSelectionScreen> </Tab.Pane>},
-  {menuItem:'Wheels', render: () => <Tab.Pane><PartSelectionScreen part_type={"wheels"}></PartSelectionScreen></Tab.Pane>},
+  {menuItem:'Color', render: () => <Tab.Pane> <PartSelectionScreen part_type={"colors"}/></Tab.Pane>},
+  {menuItem:'Wheels', render: () => <Tab.Pane><PartSelectionScreen part_type={"wheels"}/></Tab.Pane>},
   {menuItem:'Trim', render: () => <Tab.Pane>Trim Tab Content</Tab.Pane>},
 
 ]
@@ -19,7 +20,6 @@ const AllTabs = () => {
   const [{selectedPaneIndex}, dispatch] = useStateValue();
 
   const handleTabChange = (e,selectedPaneIndex) => {
-    debugger
     dispatch({
       type: 'ChangePaneIndex',
       newPaneIndex: selectedPaneIndex.activeIndex

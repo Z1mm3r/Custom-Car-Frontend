@@ -10,8 +10,8 @@ const App = () => {
   const initialState = {
     selectedPaneIndex: 0,
     availableCarModels: [],
-    possibleParts: {wheels:[],},
-    selectedPartIds: {model:null
+    possibleParts: {wheels:[],colors:[],},
+    selectedPartIds: {model:null,colors:null,wheels:null,
 
     }
   };

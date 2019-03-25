@@ -36,7 +36,8 @@ export default function CarSelectionScreen(props){
           setPossibleParts({
             type: 'ChangePossibleParts',
             newPossibleParts: {
-              wheels:info.wheels}
+              wheels:info.wheels,
+              colors:info.colors}
           })
         })
     }
