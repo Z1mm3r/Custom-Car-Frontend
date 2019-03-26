@@ -12,19 +12,24 @@ export default function PartSelectionScreen(props){
   const [{selectedPartIds}, dispatch] = useStateValue();
   const [{possibleParts}, setPossibleParts] = useStateValue();
 
-  let setCarParts = (partType,id) =>{
+  let setCarParts = (id) =>{
+    debugger
     dispatch({
       type: 'ChangeSelectedParts',
       newSelectedParts: {
         ...selectedPartIds,
-        [partType]:id}
+        [props.part_type]: id}
     })
   }
 
   let renderParts = (partType)  => {
-    debugger
     return possibleParts[partType].map(element => {
-      return <CarPartCard handleClick={setCarParts} partType={partType}  part={element} key={element.id}/>
+      if(element.id === selectedPartIds[partType]){
+        debugger
+        return <CarPartCard selected={true} handleClick={setCarParts} partType={partType}  part={element} key={element.id}/>
+      }
+      else
+        return <CarPartCard selected={false} handleClick={setCarParts} partType={partType}  part={element} key={element.id}/>
     })
   }
 

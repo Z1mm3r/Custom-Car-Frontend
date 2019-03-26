@@ -17,7 +17,12 @@ export default function CarSelectionScreen(props){
 
   let renderCars = ()  => {
     return availableCarModels.map(element => {
-      return <CarSelectionCard handleClick={getCarParts}  car={element} key={element.id}/>
+      if(element.id === selectedPartIds["model"]){
+        debugger
+        return <CarSelectionCard selected={true} handleClick={getCarParts} car={element} key={element.id}/>
+      }
+      else
+      return <CarSelectionCard selected={false} handleClick={getCarParts}  car={element} key={element.id}/>
     })
   }
 

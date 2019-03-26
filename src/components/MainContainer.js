@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import WelcomeScreen from './Welcome.js'
 import CarSelectionScreen from './CarSelectionScreen.js'
 import PageTabs from './PageTabs'
+import PageLayout from './PageLayout'
 import API_URL from '../Constants/config.js'
 
 import {TABS}  from '../Constants/config.js'
@@ -37,7 +38,7 @@ export default function MainContainer() {
 
   return(
     <div>
-      <PageTabs/>
+      <PageLayout/>
     </div>
   )
 

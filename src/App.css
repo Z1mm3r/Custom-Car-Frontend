@@ -32,6 +32,15 @@
   color: green;
 }
 
+.ui.card.selected-card>.content,
+.ui.cards>.card.selected-card>.content {
+  background-color: #999999;
+}
+
+.ui.card.selected-card {
+  background-color: #999999;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

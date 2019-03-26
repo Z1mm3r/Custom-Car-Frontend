@@ -15,7 +15,7 @@ export default function CarSelectionCard(props){
       type: 'ChangePaneIndex',
       newPaneIndex: 2
     })
- 
+
     setSelectedPart({
       type: 'ChangeSelectedParts',
       newSelectedParts: {...selectedPartIds,model:props.car.id}
@@ -27,7 +27,7 @@ export default function CarSelectionCard(props){
 
 
   return (
-    <Card>
+    <Card className={props.selected ? "selected-card" : ""}>
       <Card.Header>{props.car ? props.car.name : 'No Name Provided' }</Card.Header>
       <Card.Description className="price-text">
         {props.car.base_price ?  `Starting at $${props.car.base_price}` : 'No Price Provided' }
