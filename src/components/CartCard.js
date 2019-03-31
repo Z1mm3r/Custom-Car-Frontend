@@ -28,8 +28,10 @@ export default function CartCard (){
     return(
       <>
         {name}
+        <div/>
         {price}
-        <Image className="small-card-image" src={img_url}></Image>
+        <div/>
+        <Image className="mini-card-image" src={img_url}></Image>
         <Divider/>
       </>
     )

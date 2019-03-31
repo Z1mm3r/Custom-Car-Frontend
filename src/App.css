@@ -28,6 +28,16 @@
   width: auto;
 }
 
+.mini-card-image{
+  height: 40px;
+  width: auto;
+}
+
+.side-card-image{
+  height: 60px;
+  width: auto;
+}
+
 .price-text{
   color: green;
 }
