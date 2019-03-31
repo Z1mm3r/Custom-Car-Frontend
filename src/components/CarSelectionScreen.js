@@ -47,7 +47,6 @@ export default function CarSelectionScreen(props){
         })
     }
 
-
   return(
     <div>
     <Grid columns={1} divided centered>

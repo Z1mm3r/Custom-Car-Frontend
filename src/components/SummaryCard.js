@@ -6,16 +6,23 @@ import { useStateValue } from '../State.js';
 export default function SummaryCard() {
 
   const [{selectedPartIds}, dispatch] = useStateValue();
+  const [{possibleParts}, setPossibleParts] = useStateValue();
+
 
   let renderSummaryCard = () => {
-
+    return(
+      <Card>
+        <Card.Header> Summary </Card.Header>
+        <Card.Content> Price </Card.Content>
+      </Card>
+    )
   }
 
   return(
-    <Card>
-      <Card.Content> Summary </Card.Content>
-    </Card>
-  )
+    <>
+      {renderSummaryCard()}
+    </>
 
+  )
 
 }
