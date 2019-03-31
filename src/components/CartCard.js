@@ -1,5 +1,5 @@
 import React from 'react'
-import {Card,Grid,Divider} from 'semantic-ui-react'
+import {Card,Grid,Divider,Image} from 'semantic-ui-react'
 
 import { useStateValue } from '../State.js';
 
@@ -24,21 +24,37 @@ export default function CartCard (){
       })
   }
 
-  const renderCartCard = () => {
+  const renderCartSelection = (name,price,img_url) => {
+    return(
+      <>
+        {name}
+        {price}
+        <Image className="small-card-image" src={img_url}></Image>
+        <Divider/>
+      </>
+    )
+  }
 
+  const renderCartCard = () => {
 
     let output = []
 
+
     if(selectedPartIds["model"] != null){
-      findCarWithId(selectedPartIds["model"])
+      let car  = findCarWithId(selectedPartIds["model"])
+      output.push(renderCartSelection(car.name,car.base_price,car.img_url))
     }
 
 
     Object.keys(selectedPartIds).map((part) => {
-      if(part != "model"){
-        findPartWithId(part,selectedPartIds[part])
+      if(part != "model" && selectedPartIds[part] != null){
+        let partObj = findPartWithId(part,selectedPartIds[part])
+        debugger
+        output.push(renderCartSelection(partObj.name,partObj.price,partObj.img_url))
       }
     })
+
+    return output
 
   }
 
