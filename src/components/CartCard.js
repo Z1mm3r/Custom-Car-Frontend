@@ -10,6 +10,8 @@ export default function CartCard (){
   const [{possibleParts}, setPossibleParts] = useStateValue();
   const [{availableCarModels}, setAvailableCarModels] = useStateValue();
 
+  //TODO move this to another HOC along with the duplicated code at SummaryCard.
+
   const findPartWithId = (type,id) =>{
     debugger
     return possibleParts[type].find((part) => {

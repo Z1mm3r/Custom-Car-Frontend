@@ -33,25 +33,6 @@
   width: auto;
 }
 
-.cart-text{
-  color:black;
-  size: 10px;
-}
-
-.order-card-text-warning{
-  color:red;
-}
-
-.order-card-mini-image{
-  height: 15px;
-  width: auto
-}
-
-.side-card-image{
-  height: 60px;
-  width: auto;
-}
-
 .price-text{
   color: green;
 }
