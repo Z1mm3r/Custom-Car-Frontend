@@ -3,6 +3,7 @@ import {Grid, Image,Card} from 'semantic-ui-react'
 
 import CarPartCard from './CarPartCard.js'
 import { useStateValue } from '../State.js';
+import ErrorCard from './ErrorCard.js'
 import API_URL from '../Constants/config.js'
 
 
@@ -23,6 +24,11 @@ export default function PartSelectionScreen(props){
   }
 
   let renderParts = (partType)  => {
+
+    if(possibleParts[partType] == null){
+      return <ErrorCard></ErrorCard>
+    }
+
     return possibleParts[partType].map(element => {
       if(element.id === selectedPartIds[partType]){
         debugger
