@@ -43,12 +43,10 @@ export default function CartCard (){
 
     let output = []
 
-
     if(selectedPartIds["model"] != null){
       let car  = findCarWithId(selectedPartIds["model"])
       output.push(renderCartSelection(car.name,car.base_price,car.img_url))
     }
-
 
     Object.keys(selectedPartIds).map((part) => {
       if(part != "model" && selectedPartIds[part] != null){

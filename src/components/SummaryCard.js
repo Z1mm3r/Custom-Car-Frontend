@@ -1,5 +1,6 @@
 import React from 'react'
 import {Card,Divider,Button} from 'semantic-ui-react'
+import {numberToDollars} from '../utility/utility.js'
 
 import { useStateValue } from '../State.js';
 
@@ -31,8 +32,9 @@ export default function SummaryCard() {
           output += partObj.price
       }
     })
-
-    return output
+    let stringOutput = numberToDollars(output)
+    debugger
+    return stringOutput
 
   }
 
