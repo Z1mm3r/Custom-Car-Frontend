@@ -1,6 +1,7 @@
 import React from 'react'
 import {Card,Grid,Divider,Image} from 'semantic-ui-react'
 
+import {numberToDollars} from '../utility/utility.js'
 import { useStateValue } from '../State.js';
 
 
@@ -31,7 +32,7 @@ export default function CartCard (){
       <>
         {name}
         <div/>
-        {price}
+        {numberToDollars(price)}
         <div/>
         <Image className="mini-card-image" src={img_url}></Image>
         <Divider/>

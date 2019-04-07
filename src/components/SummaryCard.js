@@ -32,9 +32,9 @@ export default function SummaryCard() {
           output += partObj.price
       }
     })
-    let stringOutput = numberToDollars(output)
+    output = numberToDollars(output)
     debugger
-    return stringOutput
+    return output
 
   }
 
