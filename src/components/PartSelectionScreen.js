@@ -23,10 +23,26 @@ export default function PartSelectionScreen(props){
     })
   }
 
+  let handleErrors = (partType) => {
+    if(selectedPartIds["model"] == null){
+      return <ErrorCard errorType={"No Model Selected"} errorMessage={"Please Select A Car Model First."} />
+    }
+    if(possibleParts[partType] == null){
+      return <ErrorCard errorType={"Error: Null Part List."} errorMessage={"Please Report This Error"}/>
+    }
+
+    if(possibleParts[partType] == []){
+      return <ErrorCard errorType={"Error: Empty Part List."} errorMessage={"No parts of this type could be found for selected car model."}/>
+    }
+
+  }
+
   let renderParts = (partType)  => {
 
-    if(possibleParts[partType] == null){
-      return <ErrorCard></ErrorCard>
+    let error = handleErrors(partType);
+
+    if(error){
+      return error
     }
 
     return possibleParts[partType].map(element => {

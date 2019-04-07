@@ -37,14 +37,24 @@
   color: green;
 }
 
+/* ------------ Selected Items ----------------*/
+
 .ui.card.selected-card>.content,
 .ui.cards>.card.selected-card>.content {
   background-color: #999999;
 }
 
+
 .ui.card.selected-card {
   background-color: #999999;
 }
+
+/* ---------------Errors------------------------ */
+
+.ui.card.error{
+  background-color: #FF0000;
+}
+
 
 @keyframes App-logo-spin {
   from {

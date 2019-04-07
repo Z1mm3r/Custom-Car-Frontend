@@ -9,8 +9,8 @@ export default function CarSelectionCard(props){
   }
 
   return (
-    <Card className={props.errorType}>
-      <Card.Header>{props.part ? props.part.name : 'No Name Provided' }</Card.Header>
+    <Card className={"error"}>
+      <Card.Header>Error</Card.Header>
       <Card.Description className="error-text">
         {props.errorMessage}
       </Card.Description>
