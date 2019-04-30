@@ -1,20 +1,23 @@
 import React,{useState} from 'react'
-import {Grid, Image,Card} from 'semantic-ui-react'
+import {Grid, Image,Card,Input} from 'semantic-ui-react'
 
 import CarPartCard from './CarPartCard.js'
 import { useStateValue } from '../State.js';
 import ErrorCard from './ErrorCard.js'
 import API_URL from '../Constants/config.js'
-
+import StandardSearch from './StandardSearch.js'
+import Search from './Search.js'
 
 
 export default function PartSelectionScreen(props){
 
   const [{selectedPartIds}, dispatch] = useStateValue();
   const [{possibleParts}, setPossibleParts] = useStateValue();
+  const [currentSearchParts, setCurrentSearchParts] = useState([]);
+  const [isSearching, setIsSearching] = useState(false);
+
 
   let setCarParts = (id) =>{
-    debugger
     dispatch({
       type: 'ChangeSelectedParts',
       newSelectedParts: {
@@ -35,6 +38,10 @@ export default function PartSelectionScreen(props){
       return <ErrorCard errorType={"Error: Empty Part List."} errorMessage={"No parts of this type could be found for selected car model."}/>
     }
 
+    if(isSearching && currentSearchParts == []){
+      return <ErrorCard errorType={"No Results Found"} errorMessage={"No parts match this search"}/>
+    }
+
   }
 
   let renderParts = (partType)  => {
@@ -44,15 +51,51 @@ export default function PartSelectionScreen(props){
     if(error){
       return error
     }
+    console.log(isSearching)
+    console.log(currentSearchParts)
+    if(isSearching){
+      debugger
+      return currentSearchParts.map(element =>{
+        if(element.id === selectedPartIds[partType]){
+          return <CarPartCard selected={true} handleClick={setCarParts} partType={partType}  part={element} key={element.id}/>
+        }
+        else
+          return <CarPartCard selected={false} handleClick={setCarParts} partType={partType}  part={element} key={element.id}/>
+      })
+    }
 
-    return possibleParts[partType].map(element => {
-      if(element.id === selectedPartIds[partType]){
+    else
+      return possibleParts[partType].map(element => {
+        if(element.id === selectedPartIds[partType]){
+          return <CarPartCard selected={true} handleClick={setCarParts} partType={partType}  part={element} key={element.id}/>
+        }
+        else
+          return <CarPartCard selected={false} handleClick={setCarParts} partType={partType}  part={element} key={element.id}/>
+      })
+  }
+
+  let handleSearchChange = (value) =>{
+    debugger
+    if(value == ""){
+      setIsSearching(false)
+      return
+    }
+
+    else {
+      setIsSearching(true)
+    }
+
+    let output = []
+    let regex = new RegExp(value,'i')
+    if(possibleParts[props.part_type] != []){
+      possibleParts[props.part_type].forEach(element => {
         debugger
-        return <CarPartCard selected={true} handleClick={setCarParts} partType={partType}  part={element} key={element.id}/>
-      }
-      else
-        return <CarPartCard selected={false} handleClick={setCarParts} partType={partType}  part={element} key={element.id}/>
-    })
+        if(regex.test(element.name))
+        output.push(element)
+      })
+    }
+    setCurrentSearchParts(output);
+
   }
 
   return(
@@ -62,7 +105,11 @@ export default function PartSelectionScreen(props){
           <div> Select Part Model </div>
         </Grid.Row>
         <Grid.Row>
-            <Card.Group>
+          {/* <StandardSearch type = {props.part_type}></StandardSearch> */}
+          <Search onChange={handleSearchChange}/>
+        </Grid.Row>
+        <Grid.Row>
+            <Card.Group centered >
                 {renderParts(props.part_type)}
             </Card.Group>
         </Grid.Row>

@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import {Grid, Image,Card} from 'semantic-ui-react'
+import { Search,Grid, Image,Card} from 'semantic-ui-react'
 
 import CarSelectionCard from './CarSelectionCard.js'
 import { useStateValue } from '../State.js';
@@ -54,7 +54,10 @@ export default function CarSelectionScreen(props){
           <div> Select Car Model </div>
         </Grid.Row>
         <Grid.Row>
-            <Card.Group>
+          <Search></Search>
+        </Grid.Row>
+        <Grid.Row>
+            <Card.Group centered>
                 {renderCars()}
             </Card.Group>
         </Grid.Row>

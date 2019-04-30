@@ -29,7 +29,6 @@ const App = () => {
           availableCarModels: action.newCarModels
         };
       case 'ChangeSelectedParts':
-        debugger
         return {
           ...state,
           selectedPartIds: action.newSelectedParts

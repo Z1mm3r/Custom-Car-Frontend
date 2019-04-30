@@ -37,6 +37,13 @@
   color: green;
 }
 
+/* ------------Header -------------------------*/
+
+.header-image{
+  height: 100px;
+  width:auto
+}
+
 /* ------------ Selected Items ----------------*/
 
 .ui.card.selected-card>.content,

@@ -33,20 +33,17 @@ export default function SummaryCard() {
       }
     })
     output = numberToDollars(output)
-    debugger
     return output
 
   }
 
   const findPartWithId = (type,id) =>{
-    debugger
     return possibleParts[type].find((part) => {
       return part.id == id
     })
   }
 
   const findCarWithId = (id) =>{
-    debugger
       return availableCarModels.find((car) =>{
         return car.id == id;
       })

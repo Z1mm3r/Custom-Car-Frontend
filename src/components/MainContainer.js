@@ -3,6 +3,7 @@ import WelcomeScreen from './Welcome.js'
 import CarSelectionScreen from './CarSelectionScreen.js'
 import PageTabs from './PageTabs'
 import PageLayout from './PageLayout'
+import PageHeader from './PageHeader'
 import API_URL from '../Constants/config.js'
 
 import {TABS}  from '../Constants/config.js'

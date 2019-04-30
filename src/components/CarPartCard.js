@@ -1,7 +1,7 @@
 import React from 'react'
 import {Button, Card, Image } from 'semantic-ui-react'
 
-export default function CarSelectionCard(props){
+export default function CarPartCard(props){
 
   const handleClick = (e) => {
     props.handleClick(props.part.id);
