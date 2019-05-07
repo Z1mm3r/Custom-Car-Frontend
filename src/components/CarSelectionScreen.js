@@ -1,5 +1,7 @@
 import React,{useState} from 'react'
-import { Search,Grid, Image,Card} from 'semantic-ui-react'
+import {Grid, Image,Card} from 'semantic-ui-react'
+
+import Search from './Search.js'
 
 import CarSelectionCard from './CarSelectionCard.js'
 import { useStateValue } from '../State.js';
@@ -12,10 +14,25 @@ export default function CarSelectionScreen(props){
   const [{availableCarModels}, dispatch] = useStateValue();
   const [{selectedPartIds}, setSelectedPart] = useStateValue();
   const [{possibleParts}, setPossibleParts] = useStateValue();
-  debugger
+  const [currentSearchModels, setCurrentSearchModels] = useState([]);
+  const [isSearching, setIsSearching] = useState(false);
+
 
 
   let renderCars = ()  => {
+
+
+    if(isSearching){
+      return currentSearchModels.map(element =>{
+        if(element.id === selectedPartIds["model"]){
+          return <CarSelectionCard selected={true} handleClick={getCarParts}  car={element} key={element.id}/>
+        }
+        else
+          return <CarSelectionCard selected={false} handleClick={getCarParts} car={element}   key={element.id}/>
+      })
+    }
+
+
     return availableCarModels.map(element => {
       if(element.id === selectedPartIds["model"]){
         debugger
@@ -24,6 +41,30 @@ export default function CarSelectionScreen(props){
       else
       return <CarSelectionCard selected={false} handleClick={getCarParts}  car={element} key={element.id}/>
     })
+  }
+
+  let handleSearchChange = (value) =>{
+    debugger
+    if(value == ""){
+      setIsSearching(false)
+      return
+    }
+
+    else {
+      setIsSearching(true)
+    }
+
+    let output = []
+    let regex = new RegExp(value,'i')
+    if(availableCarModels != []){
+      availableCarModels.forEach(element => {
+        debugger
+        if(regex.test(element.name))
+        output.push(element)
+      })
+    }
+    setCurrentSearchModels(output);
+
   }
 
   let getCarParts = (id) => {
@@ -54,7 +95,7 @@ export default function CarSelectionScreen(props){
           <div> Select Car Model </div>
         </Grid.Row>
         <Grid.Row>
-          <Search></Search>
+          <Search onChange = {handleSearchChange}></Search>
         </Grid.Row>
         <Grid.Row>
             <Card.Group centered>

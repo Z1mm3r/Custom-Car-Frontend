@@ -15,7 +15,7 @@ export default function PartSelectionScreen(props){
   const [{possibleParts}, setPossibleParts] = useStateValue();
   const [currentSearchParts, setCurrentSearchParts] = useState([]);
   const [isSearching, setIsSearching] = useState(false);
-
+  const [selectedPart, setSelectedPart] = useState({price : 0});
 
   let setCarParts = (id) =>{
     dispatch({
@@ -24,6 +24,9 @@ export default function PartSelectionScreen(props){
         ...selectedPartIds,
         [props.part_type]: id}
     })
+
+    setSelectedPart(searchPartById(props.part_type,id))
+
   }
 
   let handleErrors = (partType) => {
@@ -51,27 +54,22 @@ export default function PartSelectionScreen(props){
     if(error){
       return error
     }
-    console.log(isSearching)
-    console.log(currentSearchParts)
-    if(isSearching){
-      debugger
-      return currentSearchParts.map(element =>{
-        if(element.id === selectedPartIds[partType]){
-          return <CarPartCard selected={true} handleClick={setCarParts} partType={partType}  part={element} key={element.id}/>
-        }
-        else
-          return <CarPartCard selected={false} handleClick={setCarParts} partType={partType}  part={element} key={element.id}/>
-      })
-    }
+
+    if(isSearching)
+      return renderPart(currentSearchParts)
 
     else
-      return possibleParts[partType].map(element => {
-        if(element.id === selectedPartIds[partType]){
-          return <CarPartCard selected={true} handleClick={setCarParts} partType={partType}  part={element} key={element.id}/>
-        }
-        else
-          return <CarPartCard selected={false} handleClick={setCarParts} partType={partType}  part={element} key={element.id}/>
-      })
+      return renderPart(possibleParts[partType])
+  }
+
+  let renderPart = (partList) => {
+    return partList.map(element =>{
+      if(element.id === selectedPartIds[props.part_type]){
+        return <CarPartCard selected={true} handleClick={setCarParts} partType={props.part_type}  part={element} key={element.id}/>
+      }
+      else
+        return <CarPartCard selected={false} handleClick={setCarParts} partType={props.part_type}  part={element} key={element.id}/>
+    })
   }
 
   let handleSearchChange = (value) =>{
@@ -96,6 +94,15 @@ export default function PartSelectionScreen(props){
     }
     setCurrentSearchParts(output);
 
+  }
+
+  let searchPartById = (partType, id) => {
+    return possibleParts[partType].find(element => {
+      if(element.id === id){
+        return true
+      }
+      return false
+    })
   }
 
   return(
