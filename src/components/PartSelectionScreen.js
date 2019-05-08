@@ -65,10 +65,10 @@ export default function PartSelectionScreen(props){
   let renderPart = (partList) => {
     return partList.map(element =>{
       if(element.id === selectedPartIds[props.part_type]){
-        return <CarPartCard selected={true} handleClick={setCarParts} partType={props.part_type}  part={element} key={element.id}/>
+        return <CarPartCard selectedValue={selectedPart.price} selected={true} handleClick={setCarParts} partType={props.part_type}  part={element} key={element.id}/>
       }
       else
-        return <CarPartCard selected={false} handleClick={setCarParts} partType={props.part_type}  part={element} key={element.id}/>
+        return <CarPartCard selectedValue={selectedPart.price} selected={false} handleClick={setCarParts} partType={props.part_type}  part={element} key={element.id}/>
     })
   }
 

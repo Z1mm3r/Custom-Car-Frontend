@@ -37,6 +37,14 @@
   color: green;
 }
 
+.price-text-higher{
+  color: green;
+}
+
+.price-text-lower{
+  color: black;
+}
+
 /* ------------Header -------------------------*/
 
 .header-image{

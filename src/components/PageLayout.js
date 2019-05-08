@@ -2,7 +2,7 @@ import React from 'react'
 import PageTabs from './PageTabs'
 import {Grid} from 'semantic-ui-react'
 import SummaryScreen from './SummaryScreen'
-import PageHeader from './PageHeader'
+import PageHeader from './PageHeader.js'
 
 export default function PageLayout()
 {
