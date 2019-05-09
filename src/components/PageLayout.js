@@ -16,7 +16,9 @@ export default function PageLayout()
           <PageTabs/>
         </Grid.Column>
         <Grid.Column width={2}>
-          <SummaryScreen/>
+          <div className ="sticky-side">
+            <SummaryScreen/>
+          </div>
         </Grid.Column>
       </Grid>
     </div>

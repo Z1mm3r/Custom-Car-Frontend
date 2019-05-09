@@ -52,6 +52,14 @@
   width:auto
 }
 
+/*----------Sticky -------------------*/
+
+.sticky-side{
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
 /* ------------ Selected Items ----------------*/
 
 .ui.card.selected-card>.content,
