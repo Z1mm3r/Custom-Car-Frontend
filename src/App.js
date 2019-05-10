@@ -36,7 +36,8 @@ const App = () => {
       case 'ChangePossibleParts':
         return {
           ...state,
-          possibleParts: action.newPossibleParts
+          possibleParts: action.newPossibleParts,
+          selectedPartIds:{model: state.selectedPartIds.model,colors:null,wheels:null, }
         }
       default:
         return {...state}

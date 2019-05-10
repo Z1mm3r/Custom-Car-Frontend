@@ -8,7 +8,7 @@ import PartSelectionScreen from './PartSelectionScreen.js'
 
 
 const panes = [
-  {menuItem:'Welcome', render:() => <Tab.Pane> Welcome </Tab.Pane>},
+  {menuItem:'Intro', render:() => <Tab.Pane> Intro </Tab.Pane>},
   {menuItem:'Model', render: () => <Tab.Pane> <CarSelectionScreen> </CarSelectionScreen> </Tab.Pane>},
   {menuItem:'Color', render: () => <Tab.Pane> <PartSelectionScreen part_type={"colors"}/></Tab.Pane>},
   {menuItem:'Wheels', render: () => <Tab.Pane><PartSelectionScreen part_type={"wheels"}/></Tab.Pane>},

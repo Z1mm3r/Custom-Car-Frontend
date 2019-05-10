@@ -52,12 +52,14 @@ export default function SummaryCard() {
 
   let renderSummaryCard = () => {
     return(
-      <Card>
-        <Card.Header> Summary </Card.Header>
-        <Card.Content> Price <div/> {getTotalPrice()} </Card.Content>
-        <Button color="green">Purchase</Button>
-      </Card>
-    )
+      <div className="center-card">
+        <Card>
+          <Card.Header> Summary </Card.Header>
+          <Card.Content> Price <div/> {getTotalPrice()} </Card.Content>
+          <Button centered color="green">Purchase</Button>
+        </Card>
+      </div>
+      )
   }
 
   return(

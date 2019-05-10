@@ -45,6 +45,15 @@
   color: black;
 }
 
+.center-card{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 10px;
+  width: 100%
+}
+
 /* ------------Header -------------------------*/
 
 .header-image{

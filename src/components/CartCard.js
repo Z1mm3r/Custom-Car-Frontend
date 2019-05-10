@@ -62,10 +62,12 @@ export default function CartCard (){
   }
 
   return (
-    <Card>
-      <Card.Header> Cart </Card.Header>
-      <Card.Content> {renderCartCard()}</Card.Content>
-    </Card>
+    <div className="center-card">
+      <Card>
+        <Card.Header> Cart </Card.Header>
+        <Card.Content> {renderCartCard()}</Card.Content>
+      </Card>
+    </div>
   )
 
 }
