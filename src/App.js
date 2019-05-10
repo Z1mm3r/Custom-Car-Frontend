@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom'
 
 import {StateProvider} from './State.js'
 import logo from './logo.svg';
 import './App.css';
-import MainContainer from './components/MainContainer.js'
+
+import SiteWrapper from './SiteWrapper.js'
 
 const App = () => {
 
@@ -47,7 +49,9 @@ const App = () => {
   return (
     <div className="App">
       <StateProvider initialState={initialState} reducer={reducer}>
-        <MainContainer/>
+        <BrowserRouter>
+          <SiteWrapper/>
+        </BrowserRouter>
       </StateProvider>
     </div>
   );

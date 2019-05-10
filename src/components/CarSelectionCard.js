@@ -2,7 +2,7 @@ import React,{Component} from 'react'
 import {Button, Card, Image } from 'semantic-ui-react'
 
 import { useStateValue } from '../State.js';
-
+import {numberToDollars} from '../utility/utility.js'
 
 export default function CarSelectionCard(props){
 
@@ -30,7 +30,7 @@ export default function CarSelectionCard(props){
     <Card className={props.selected ? "selected-card" : ""}>
       <Card.Header>{props.car ? props.car.name : 'No Name Provided' }</Card.Header>
       <Card.Description className="price-text">
-        {props.car.base_price ?  `Starting at $${props.car.base_price}` : 'No Price Provided' }
+        {props.car.base_price ?  `Starting at ${numberToDollars(props.car.base_price,0)}` : 'No Price Provided' }
       </Card.Description>
       <Card.Content>
         <Image  className="small-card-image" src={props.car.img_url}/>
