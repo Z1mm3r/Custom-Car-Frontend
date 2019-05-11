@@ -10,12 +10,12 @@ export default function PageLayout()
 
   return(
     <div>
+      <PageHeader></PageHeader>
       <Grid columns={3} divided centered style={{height: '100vh',width: '100vw'}}>
         <Grid.Column width={1}>
           <SideMenu></SideMenu>
         </Grid.Column>
         <Grid.Column width={11}>
-          <PageHeader></PageHeader>
           <PageTabs/>
         </Grid.Column>
         <Grid.Column width={2}>
