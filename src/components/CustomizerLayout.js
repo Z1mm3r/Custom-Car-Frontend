@@ -5,7 +5,7 @@ import SummaryScreen from './SummaryScreen'
 import PageHeader from './PageHeader.js'
 import SideMenu from './SideMenu.js'
 
-export default function PageLayout()
+export default function CustomizerLayout()
 {
 
   return(

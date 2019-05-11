@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 
 
-import PageLayout from '../components/PageLayout'
+import PageLayout from '../components/CustomizerLayout'
 
 import API_URL from '../Constants/config.js'
 
