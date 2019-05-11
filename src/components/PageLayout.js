@@ -10,7 +10,9 @@ export default function PageLayout()
 
   return(
     <div>
-      <PageHeader></PageHeader>
+      <div>
+        <PageHeader></PageHeader>
+      </div>
       <Grid columns={3} divided centered style={{height: '100vh',width: '100vw'}}>
         <Grid.Column width={1}>
           <SideMenu></SideMenu>

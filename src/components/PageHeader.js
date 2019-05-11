@@ -8,11 +8,11 @@ import logo from '../Media/Images/logo.png';
 export default function PageHeader(){
 
   return(
-    <>
+    <div className="header-main">
       <Image  centered className="header-image" src={logo}></Image>
       <HorizNavBar/>
       <Divider/>
-    </>
+    </div>
   )
 
 }

@@ -61,6 +61,26 @@
   width:auto
 }
 
+.header-main{
+  background-image: url(Media/Images/header_background.jpg);
+}
+
+
+
+/*---------Home-----------------------------*/
+.home-body{
+  background-image: url(https://i.giphy.com/media/jlraqCNnuvyfD0jUmr/source.mp4);
+}
+
+.video-body{
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+
+}
+
 /*----------Sticky -------------------*/
 
 .sticky-side{
