@@ -1,6 +1,6 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader.js'
-import {Grid, Container, Segment, Header,Image} from 'semantic-ui-react'
+import {Grid,Button, Container, Segment, Header,Image} from 'semantic-ui-react'
 import picture from '../Media/Images/horizon.jpg';
 export default function HomeScreen(){
 
@@ -12,10 +12,17 @@ export default function HomeScreen(){
       <PageHeader/>
       <Grid divided centered >
         <Grid.Row height={3}>
-          <Header> Dare To Be Different</Header>
             <div className="ui fluid image">
               <Image centered src={picture}/>
-              <div style={{color: 'white', position: 'absolute', bottom: 0, width: '100%', height: 'auto'}}>TEST</div>
+              <Header style={{color: 'white', position: 'absolute', top: 0, width: '100%', height: 'auto'}} > Dare To Be Different</Header>
+              <div style={{color: 'white', position: 'absolute', bottom: 0, width: '100%', height: 'auto'}}>
+                <Button>
+                  Create Your Own Custom Car Today!
+                </Button>
+                <Segment>
+                  The Brown Cow Jumped Over The Moon
+                </Segment>
+              </div>
             </div>
         </Grid.Row>
         <Grid.Row height={10}>
